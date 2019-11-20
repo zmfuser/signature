@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <!-- <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br />
@@ -99,14 +99,42 @@
         >
       </li>
     </ul>
+  </div> -->
+  <div class="hello">
+    <p>{{jsonTest}}</p>
   </div>
 </template>
 
 <script>
+// import $axios form "axios"
+// import $axios from 'axios'
 export default {
+
   name: "HelloWorld",
   props: {
-    msg: String
+    msg: String,
+ 
+  },
+  data() {
+    return {
+      jsonTest: ""
+    }
+  },
+  created(){
+    this.getdata()
+  },
+  methods:{
+    getdata(){
+     
+          this.$axios.get(`/party/emp/isManager`).then((response) => {
+              this.jsonTest = response.data
+            })
+           
+          
+       
+   
+
+    }
   }
 };
 </script>
