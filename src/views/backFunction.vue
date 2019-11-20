@@ -11,7 +11,7 @@
       <div class="clear" @click="canvasUndo">back</div>
       <div class="clear" @click="canvasRedo">next</div>
       <!-- <div class="save" @click="save">保存</div> -->
-      <button v-on:click="doprint()">打印pdf</button>
+      <!-- <button v-on:click="doprint()">打印pdf</button> -->
     </div>
   </div>
 </template>

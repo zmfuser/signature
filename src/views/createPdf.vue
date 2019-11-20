@@ -10,7 +10,6 @@
       <div class="clear" @click="canvasRedo">next</div>
       <div class="save" @click="save">保存</div>
       <button v-on:click="doprint()">打印pdf</button>
-      <button v-on:click="getPdf()">keep打印pdf</button>
       
     </div>
   </div>
@@ -37,7 +36,7 @@ export default {
     this.install();
     // this.installCanvas();
     window.addEventListener("touchmove",function(e){
-        console.log('test')
+       
         e.preventDefault()
     },{passive: false})
   },
@@ -49,8 +48,6 @@ export default {
       var ctx = canvas.getContext("2d");
 
       canvas.ontouchmove = function(e) {
-        console.log(e.touches[0].pageX, e.touches[0].pageY);
-        // console.log(e.offsetX);
 
         if (this.last != null) {
           ctx.beginPath();
@@ -92,11 +89,9 @@ export default {
       var readFile = new FileReader();
 
       readFile.readAsDataURL(filedata);
-      console.log(readFile);
       // 图片读取成功
       readFile.onload = function() {
         // 结果
-        console.log(this.result);
         // this.result;
         // 第一种方法
         var Img = new Image();
@@ -124,8 +119,6 @@ export default {
         this.canvasHistory = [];
         this.step = -1;
         myCanvas.ontouchmove = function(e) {
-        // console.log(e.touches[0].pageX, e.touches[0].pageY);
-        // console.log(e.offsetX);
         if (this.last != null) {
           ctx.beginPath();
           ctx.moveTo(this.last[0], this.last[1]);
@@ -168,7 +161,6 @@ export default {
         let canvasPic = new Image();
         
         canvasPic.src = this.canvasHistory[this.step];
-        console.log(this.step,this.canvasHistory[this.step])
         //  Img.src = this.result;
         canvasPic.onload = function() {
           // 根据 图片的 宽高 来 设置canvas 宽和高
@@ -248,7 +240,7 @@ export default {
 }
 .sign-btn {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
   // margin:20px 0;
 }
