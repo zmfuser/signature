@@ -11,7 +11,7 @@
     "axios": "^0.19.0",
     "core-js": "^3.3.2",
     "html2canvas": "^1.0.0-rc.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jspdf": "^1.5.3",
     "vue": "^2.6.10",
     "vue-print-nb": "^1.4.0",
